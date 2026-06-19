@@ -1,0 +1,10 @@
+year,event,price_change_pct,notes,source
+2018,Standard annual uplift,5,Standard contractual uplift clause,Oracle partner community
+2019,Standard annual uplift,5,Standard contractual uplift clause,Oracle partner community
+2020,Standard annual uplift,5,COVID year — some accounts negotiated freeze,Oracle partner community
+2021,Post-COVID normalization,7,Higher uplift as Oracle recovered ARR growth,NetSuite user community (r/netsuite)
+2022,Inflation adjustment,8,Oracle cited vendor cost increases,CFO forum reports
+2023,Per-user price increase,10,Per-user license fee increased at select renewals,Oracle partner channel data
+2024,Enterprise tier restructuring,8,Module-level pricing changes added to uplift,NetSuite admin community
+2025,Oracle price review,12,25-30% per-user increase at select accounts confirmed,Multiple CFO reports; r/netsuite June 2025
+2026,Oracle June price event,8,Ongoing; $99→$129/user at select renewals confirmed,del.ai prospect research June 2026
