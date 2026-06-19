@@ -11,7 +11,6 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-F97316.svg" alt="License"></a>
   <a href="https://usedel.ai"><img src="https://img.shields.io/badge/website-usedel.ai-F97316" alt="Website"></a>
-  <a href="https://usedel-ai.github.io/netsuite-stack-tax/calculator/"><img src="https://img.shields.io/badge/%F0%9F%A7%AE_calculator-live-brightgreen" alt="Calculator"></a>
   <img src="https://img.shields.io/badge/research-MIT_%C2%B7_NBER_%C2%B7_Panorama-blue" alt="Research">
   <img src="https://img.shields.io/badge/data-June_2026-lightgrey" alt="Data date">
   <a href="https://www.linkedin.com/"><img src="https://img.shields.io/badge/LinkedIn-del.ai-0A66C2?logo=linkedin" alt="LinkedIn"></a>
@@ -24,12 +23,9 @@
 
 | Folder | What you get |
 |--------|-------------|
-| [`calculator/`](calculator/) | Standalone browser Stack Tax Calculator — no login, no backend |
 | [`templates/`](templates/) | CFO renewal math, migration checklist, board talking points |
 | [`data/`](data/) | ERP cost CSV (2026), renewal escalation history, AI agent requirements matrix |
 | [`research/`](research/) | Why AI fails on closed ERP, Alliance Partner economics, academic citations |
-
-**Live calculator:** [usedel-ai.github.io/netsuite-stack-tax/calculator/](https://usedel-ai.github.io/netsuite-stack-tax/calculator/)
 
 ---
 
@@ -116,7 +112,6 @@ Full analysis: [`research/alliance-partner-economics.md`](research/alliance-part
 ## Use This Repo
 
 **CFO / Controller:**
-- Run the [live calculator](https://usedel-ai.github.io/netsuite-stack-tax/calculator/) with your actual numbers
 - Download [`templates/renewal-math.md`](templates/renewal-math.md) for your board deck
 - Use [`templates/board-talking-points.md`](templates/board-talking-points.md) to frame the migration decision
 
