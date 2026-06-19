@@ -48,6 +48,8 @@ The license is the smallest line item. The stack is what kills you.
 
 **Source:** Panorama Consulting 2024 ERP Report; del.ai market research.
 
+![NetSuite annual stack cost broken into 5 line items: License $30-50k, Alliance Partner retainer $30-100k, SuiteApps $20-50k, BI tools $30-80k, internal admin headcount $100-400k. Total $260k-$830k annually.](assets/charts/stack-breakdown.png)
+
 ---
 
 ## The 5-Year Cost of Staying
@@ -98,6 +100,8 @@ Annual total stack cost, $50M revenue company, 100 users:
 | **Odoo (via del.ai)** | **$24,000** | **$60,000** |
 
 Full dataset: [`data/erp-cost-2026.csv`](data/erp-cost-2026.csv)
+
+![ERP total stack cost comparison 2026: NetSuite $260k-$830k, SAP Business One $215k-$660k, Acumatica $148k-$445k, Odoo post-migration $24k-$60k. Based on $50M revenue company, 100 users, all-in costs.](assets/charts/erp-cost-comparison.png)
 
 ---
 

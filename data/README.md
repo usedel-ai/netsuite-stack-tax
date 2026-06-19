@@ -36,6 +36,8 @@ Annual NetSuite price change history 2018–2026.
 
 NetSuite does not publish list prices or escalation rates. This data is derived from Alliance Partner community discussions, CFO interviews, and verified customer reports. Conservative estimate for financial modeling: 8% annually.
 
+![NetSuite annual price escalation 2018-2026: started at 5% in 2018-2020, rose to 7-10% in 2021-2023, peaked at 12% reported in 2025 with 25-30% per-user increases at select accounts. Conservative planning estimate: 8%.](../assets/charts/renewal-escalation.png)
+
 ## ai-agent-erp-requirements.csv
 
 Five primitives AI agents need to operate in production ERP environments, with NetSuite vs Odoo support.
