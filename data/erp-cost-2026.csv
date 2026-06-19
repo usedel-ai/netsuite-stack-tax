@@ -1,0 +1,5 @@
+erp,vendor,annual_min_usd,annual_max_usd,users,revenue_usd,notes,source,year
+NetSuite,Oracle,260000,830000,100,50000000,"License + Alliance Partner retainer + SuiteApps + BI/ETL + admin headcount","Panorama Consulting 2024 ERP Report; del.ai market research",2026
+SAP Business One,SAP,215000,660000,100,50000000,"License + implementation partner + support + add-ons","SAP partner pricing; Panorama 2024",2026
+Acumatica,Acumatica,148000,445000,100,50000000,"Consumption-based licensing + implementation + support","Acumatica published pricing; implementation partner surveys",2026
+Odoo,Odoo S.A. via del.ai,24000,60000,100,50000000,"Post-migration steady state: hosting + Odoo Enterprise license only. Excludes one-time migration cost (~$50k)","del.ai migration economics; Odoo Enterprise pricing 2026",2026

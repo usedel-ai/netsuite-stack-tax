@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NetSuite Stack Tax Calculator — del.ai</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #1a1919; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; padding: 40px 20px; }
+  .container { max-width: 640px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { color: #999; font-size: 0.875rem; margin-bottom: 32px; }
+  .field { margin-bottom: 20px; }
+  label { display: block; font-size: 0.875rem; color: #ccc; margin-bottom: 6px; }
+  input[type="number"] { width: 100%; background: #2a2929; border: 1px solid #444; color: #fff; padding: 10px 14px; font-size: 1rem; border-radius: 6px; outline: none; }
+  input[type="number"]:focus { border-color: #e4f222; }
+  .results { margin-top: 32px; background: #2a2929; border: 1px solid #333; border-radius: 8px; padding: 24px; }
+  .result-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid #333; }
+  .result-row:last-child { border-bottom: none; }
+  .result-label { color: #ccc; font-size: 0.875rem; }
+  .result-value { font-weight: 700; font-size: 1.1rem; }
+  .result-value.solar { color: #e4f222; }
+  .result-value.green { color: #4ade80; }
+  .result-value.red { color: #f87171; }
+  .highlight { background: #e4f222; color: #1a1919; border-radius: 8px; padding: 16px 20px; margin-top: 20px; }
+  .highlight .big { font-size: 2rem; font-weight: 900; }
+  .highlight .label { font-size: 0.8rem; margin-top: 2px; opacity: 0.7; }
+  .cta { margin-top: 24px; text-align: center; }
+  .cta a { color: #e4f222; text-decoration: none; font-size: 0.875rem; }
+  .cta a:hover { text-decoration: underline; }
+  .footer { margin-top: 40px; text-align: center; color: #555; font-size: 0.75rem; }
+  .footer a { color: #777; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>NetSuite Stack Tax Calculator</h1>
+  <p class="subtitle">Enter your actual numbers. See your real annual cost.</p>
+
+  <div class="field">
+    <label>NetSuite license + per-user fees ($/yr)</label>
+    <input type="number" id="license" placeholder="40000" value="" min="0">
+  </div>
+  <div class="field">
+    <label>Alliance Partner retainer ($/yr)</label>
+    <input type="number" id="partner" placeholder="65000" value="" min="0">
+  </div>
+  <div class="field">
+    <label>SuiteApps — Avalara, Celigo, FloQast, other ($/yr)</label>
+    <input type="number" id="suiteapps" placeholder="35000" value="" min="0">
+  </div>
+  <div class="field">
+    <label>BI tools + ETL — Looker, Snowflake, Fivetran ($/yr)</label>
+    <input type="number" id="bi" placeholder="55000" value="" min="0">
+  </div>
+  <div class="field">
+    <label>Internal NetSuite admin FTEs (count — we multiply by $120k)</label>
+    <input type="number" id="ftes" placeholder="2" value="" min="0" step="0.5">
+  </div>
+
+  <div class="results" id="results" style="display:none">
+    <div class="result-row">
+      <span class="result-label">Your annual stack cost</span>
+      <span class="result-value solar" id="r-total"></span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Stack multiplier vs license</span>
+      <span class="result-value" id="r-multiplier"></span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">5-year staying cost (8% escalation)</span>
+      <span class="result-value red" id="r-5yr-ns"></span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">5-year cost with Odoo migration</span>
+      <span class="result-value green" id="r-5yr-odoo"></span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Payback period</span>
+      <span class="result-value" id="r-payback"></span>
+    </div>
+    <div class="highlight">
+      <div class="big" id="r-savings"></div>
+      <div class="label">5-year net savings by migrating to Odoo</div>
+    </div>
+    <div class="cta">
+      <a href="https://usedel.ai" target="_blank">Want Patrick to run this for your specific stack? → usedel.ai</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    Built by <a href="https://usedel.ai" target="_blank">del.ai</a> · Open source ·
+    <a href="https://github.com/usedel-ai/netsuite-stack-tax" target="_blank">GitHub</a>
+  </div>
+</div>
+
+<script>
+const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+
+function calc() {
+  const license = parseFloat(document.getElementById('license').value) || 0;
+  const partner = parseFloat(document.getElementById('partner').value) || 0;
+  const suiteapps = parseFloat(document.getElementById('suiteapps').value) || 0;
+  const bi = parseFloat(document.getElementById('bi').value) || 0;
+  const ftes = parseFloat(document.getElementById('ftes').value) || 0;
+
+  const total = license + partner + suiteapps + bi + (ftes * 120000);
+  if (total === 0) { document.getElementById('results').style.display = 'none'; return; }
+
+  // 5-year NetSuite at 8% escalation
+  let ns5 = 0, cur = total;
+  for (let i = 0; i < 5; i++) { ns5 += cur; cur *= 1.08; }
+
+  // 5-year Odoo: $50k migration + $30k/yr
+  const odoo5 = 50000 + (30000 * 5);
+
+  const savings = ns5 - odoo5;
+  const odooAnnual = 30000;
+  const monthSavings = (total - odooAnnual) / 12;
+  const payback = monthSavings > 0 ? Math.ceil(50000 / monthSavings) : 999;
+
+  document.getElementById('r-total').textContent = fmt(total);
+  document.getElementById('r-multiplier').textContent = license > 0 ? (total / license).toFixed(1) + '× your license' : '—';
+  document.getElementById('r-5yr-ns').textContent = fmt(ns5);
+  document.getElementById('r-5yr-odoo').textContent = fmt(odoo5);
+  document.getElementById('r-payback').textContent = payback <= 36 ? payback + ' months' : payback + ' months';
+  document.getElementById('r-savings').textContent = fmt(savings);
+  document.getElementById('results').style.display = 'block';
+}
+
+['license','partner','suiteapps','bi','ftes'].forEach(id => {
+  document.getElementById(id).addEventListener('input', calc);
+});
+</script>
+</body>
+</html>
