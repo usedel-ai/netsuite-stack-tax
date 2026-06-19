@@ -82,7 +82,6 @@ Neither party is neutral. But only one of them discloses it.
 ## Further Reading
 
 - [Renewal Math Template](../templates/renewal-math.md)
-- [5-Year Cost Calculator](../calculator/index.html)
 - [Full TCO Research](../README.md)
 - [del.ai migration platform](https://usedel.ai)
 

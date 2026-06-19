@@ -85,7 +85,7 @@ Direct comparison for $30M–$300M revenue companies evaluating migration.
 
 | Feature | NetSuite | Odoo |
 |---------|----------|------|
-| Native AI agents | ❌ | ✅ (via del.ai at migration) |
+| Native AI agents | ❌ | ✅ (Python ORM; full schema access) |
 | Workflow automation | ✅ SuiteFlow | ✅ Native |
 | API access for agents | ⚠️ Limited (rate-limited, field-restricted) | ✅ Full (ORM + PostgreSQL) |
 | Custom Python automation | ❌ SuiteScript (JS) only | ✅ Native Python |

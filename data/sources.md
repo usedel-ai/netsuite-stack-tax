@@ -19,12 +19,12 @@
 - Implication: AI productivity is real but invisible to standard accounting
 - American Economic Journal: Macroeconomics, Vol. 13, No. 1
 
-**Lev & Radhakrishnan — NBER Working Paper 2003**
+**Lev & Radhakrishnan — NBER Working Paper No. 9581 (2003)**
 - "The Valuation of Organization Capital"
 - Finding: GAAP ASC 350 prohibits capitalizing internally generated intangibles
 - Implication: every AI workflow your team builds is expensed, not capitalized
 
-**Tambe, Hitt, Rock & Brynjolfsson — NBER 2021**
+**Tambe, Hitt, Rock & Brynjolfsson — NBER Working Paper No. 28285 (January 2021)**
 - "Digital Capital and Superstar Firms"
 - Finding: digital capital Gini coefficient ~0.90 vs physical capital ~0.60
 - Finding: top 10% of firms hold ~90% of digital capital; bottom 90% hold ~10%

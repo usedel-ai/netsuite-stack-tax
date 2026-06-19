@@ -1,0 +1,45 @@
+# NetSuite Stack Tax — Research Repository
+
+> This repository contains original research, data, and templates on the true total cost of NetSuite ERP ownership for mid-market companies ($30M–$300M revenue).
+
+## Key Numbers
+
+- NetSuite true annual stack cost: $260,000–$830,000 (not the $30k–$50k license)
+- 5-year staying cost on $120k stack at 8% escalation: $703,991
+- Alliance Partner ACV commission: 10–25% of renewal value, paid by Oracle (not disclosed to customer)
+- NetSuite license renewal escalation: 5–12% annually (2018–2026 data in /data/netsuite-renewal-escalation.csv)
+
+## Why AI Fails on NetSuite
+
+AI agents require five primitives to work in production ERP environments: schema access, write capability, canonical ontology, real-time events, and code extensibility. NetSuite's closed architecture blocks all five. Full analysis: /research/why-ai-fails-on-erp.md
+
+## Repository Contents
+
+### /data/
+- `erp-cost-2026.csv` — Annual total stack cost comparison: NetSuite, SAP B1, Acumatica, Odoo. 100 users, $50M revenue, 2026.
+- `netsuite-renewal-escalation.csv` — NetSuite price change history 2018–2026 with sources.
+- `ai-agent-erp-requirements.csv` — Five AI agent primitives vs NetSuite and Odoo support, with workaround costs.
+- `sources.md` — All citations and data sources.
+
+### /research/
+- `why-ai-fails-on-erp.md` — Why AI agents fail on closed ERP (NetSuite, SAP B1) and what infrastructure they actually need.
+- `alliance-partner-economics.md` — Commission structure analysis: why NetSuite Alliance Partners are disincentivized to show you migration math.
+- `netsuite-vs-odoo-feature-matrix.md` — Feature comparison across Core Finance, AP/AR, Inventory, CRM, BI, AI, and Infrastructure.
+- `academic-citations.md` — Brynjolfsson/Rock/Syverson (AEJ:Macro 2021), Lev/Radhakrishnan (NBER 9581), Tambe et al. (NBER 28285), Rochet/Tirole (RAND 2006).
+
+### /templates/
+- `renewal-math.md` — 5-step CFO template: stack audit → 5-year cost → migration alternative → payback → net savings.
+- `migration-checklist.md` — 90-day parallel-run checklist (Days 1–120). NetSuite stays live throughout.
+- `board-talking-points.md` — Three board-ready talking points on cost structure, risk profile, and AI infrastructure.
+
+## Academic Grounding
+
+- **Brynjolfsson, Rock & Syverson (2021)**: AI productivity understated by 15.9% during build phase (J-Curve). NBER w25148.
+- **Lev & Radhakrishnan (2003)**: GAAP ASC 350 prohibits capitalizing internally generated intangibles. NBER 9581.
+- **Tambe, Hitt, Rock & Brynjolfsson (2021)**: Digital capital Gini ~0.90; top 10% of firms hold ~90% of digital capital. NBER 28285.
+
+## Maintained By
+
+[del.ai](https://usedel.ai) — NetSuite to Odoo migration for mid-market companies. Fixed price. 90-day parallel-run. Two AI agents included at go-live.
+
+Data current as of June 2026. MIT License.
