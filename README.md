@@ -1,10 +1,14 @@
-# NetSuite Stack Tax — True Cost Research & Calculator
+<p align="center">
+  <img src="./assets/banner.png" alt="NetSuite Stack Tax by del.ai" width="100%">
+</p>
 
-> **Your NetSuite license is $40k. Your actual bill is $260k–$830k.**
-
-This repository contains open-source research, data, and tools for mid-market finance teams evaluating the true cost of NetSuite and the economics of migrating to Odoo.
-
-Maintained by [del.ai](https://usedel.ai) — AI-led NetSuite to Odoo migration platform.
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="License"></a>
+  <a href="https://usedel.ai"><img src="https://img.shields.io/badge/website-usedel.ai-F97316" alt="Website"></a>
+  <a href="https://usedel-ai.github.io/netsuite-stack-tax/calculator/"><img src="https://img.shields.io/badge/calculator-live-brightgreen" alt="Calculator"></a>
+  <a href="https://www.linkedin.com/company/del-ai"><img src="https://img.shields.io/badge/LinkedIn-del.ai-0A66C2?logo=linkedin" alt="LinkedIn"></a>
+  <a href="https://github.com/usedel-ai/netsuite-stack-tax/discussions"><img src="https://img.shields.io/badge/discussions-open-blue" alt="Discussions"></a>
+</p>
 
 ---
 
@@ -12,10 +16,12 @@ Maintained by [del.ai](https://usedel.ai) — AI-led NetSuite to Odoo migration 
 
 | Folder | What you get |
 |--------|-------------|
-| [`calculator/`](calculator/) | Standalone browser-based Stack Tax Calculator — no login, no backend |
-| [`templates/`](templates/) | CFO renewal math template, migration checklist, board talking points |
-| [`data/`](data/) | ERP cost comparison CSV (2026), renewal escalation data |
-| [`research/`](research/) | Why AI fails on closed ERP, academic citations, NetSuite renewal math |
+| [`calculator/`](calculator/) | Standalone browser Stack Tax Calculator — no login, no backend |
+| [`templates/`](templates/) | CFO renewal math, migration checklist, board talking points |
+| [`data/`](data/) | ERP cost CSV (2026), renewal escalation history, AI agent requirements matrix |
+| [`research/`](research/) | Why AI fails on closed ERP, Alliance Partner economics, academic citations |
+
+**Live calculator:** [usedel-ai.github.io/netsuite-stack-tax/calculator/](https://usedel-ai.github.io/netsuite-stack-tax/calculator/)
 
 ---
 
@@ -36,7 +42,7 @@ That number is missing four more line items:
 
 The license is the smallest line item. The stack is what kills you.
 
-**Source:** Panorama Consulting 2024 ERP Report; del.ai market research across 50+ mid-market NetSuite deployments.
+**Source:** Panorama Consulting 2024 ERP Report; del.ai market research.
 
 ---
 
@@ -63,51 +69,54 @@ Migration to Odoo via del.ai: starts at $50,000 (one-time) + $24,000–$60,000/y
 
 AI agents need five primitives to work in production:
 
-1. **Schema access** — read the full data model, not just what the API exposes
-2. **Write capability** — create/update records without vendor-controlled API limits
-3. **A canonical ontology** — consistent field names and relationships across modules
-4. **Real-time event access** — react to changes as they happen
-5. **Code-level extensibility** — modify business logic without SuiteScript lock-in
-
-NetSuite provides none of these for third-party agents. Its API is read-limited, rate-limited, and field-limited by design.
-
-Odoo (open-source, PostgreSQL-backed) provides all five on day one.
-
-This is not an AI problem. It's a substrate problem.
+| Primitive | NetSuite | Odoo |
+|-----------|----------|------|
+| Schema access | Partial (API subset only) | Full (PostgreSQL direct) |
+| Write capability | Limited (10 req/s, field restrictions) | Full (ORM + direct write) |
+| Canonical ontology | No (3 naming systems) | Yes (ORM enforces consistency) |
+| Real-time events | No (no native webhooks) | Yes (LISTEN/NOTIFY) |
+| Code extensibility | No (SuiteScript sandbox) | Yes (Python, no gating) |
 
 Full analysis: [`research/why-ai-fails-on-erp.md`](research/why-ai-fails-on-erp.md)
+Data: [`data/ai-agent-erp-requirements.csv`](data/ai-agent-erp-requirements.csv)
 
 ---
 
 ## ERP Cost Comparison (2026)
 
-Annual total stack cost for a $50M revenue company, 100 users:
+Annual total stack cost, $50M revenue company, 100 users:
 
-| ERP | Min | Max | Notes |
-|-----|-----|-----|-------|
-| NetSuite | $260,000 | $830,000 | License + partner + apps + admin |
-| SAP Business One | $215,000 | $660,000 | License + implementation + support |
-| Acumatica | $148,000 | $445,000 | Consumption-based pricing varies |
-| **Odoo (via del.ai)** | **$24,000** | **$60,000** | Post-migration, hosting + license only |
+| ERP | Min | Max |
+|-----|-----|-----|
+| NetSuite | $260,000 | $830,000 |
+| SAP Business One | $215,000 | $660,000 |
+| Acumatica | $148,000 | $445,000 |
+| **Odoo (via del.ai)** | **$24,000** | **$60,000** |
 
 Full dataset: [`data/erp-cost-2026.csv`](data/erp-cost-2026.csv)
+
+---
+
+## Alliance Partner Economics
+
+Your Alliance Partner earns an estimated 10–25% commission on your NetSuite ACV at renewal — paid by Oracle. On a $120k ACV, that's $12k–$30k/yr they earn for not pushing back on your renewal price.
+
+Full analysis: [`research/alliance-partner-economics.md`](research/alliance-partner-economics.md)
 
 ---
 
 ## Use This Repo
 
 **CFO / Controller:**
-- Run the [calculator](calculator/index.html) with your actual numbers
-- Download [`templates/renewal-math.md`](templates/renewal-math.md) to build your board deck
+- Run the [live calculator](https://usedel-ai.github.io/netsuite-stack-tax/calculator/) with your actual numbers
+- Download [`templates/renewal-math.md`](templates/renewal-math.md) for your board deck
 - Use [`templates/board-talking-points.md`](templates/board-talking-points.md) to frame the migration decision
 
 **NetSuite Admin / IT:**
 - See [`templates/migration-checklist.md`](templates/migration-checklist.md) for the 90-day parallel-run process
 - Read [`research/why-ai-fails-on-erp.md`](research/why-ai-fails-on-erp.md) before your next AI pilot
 
-**Anyone evaluating ERP migration:**
-- Start with [`data/erp-cost-2026.csv`](data/erp-cost-2026.csv) for a benchmark
-- See [`research/academic-citations.md`](research/academic-citations.md) for the economic research behind these numbers
+**Questions?** Open a [discussion](https://github.com/usedel-ai/netsuite-stack-tax/discussions).
 
 ---
 
@@ -115,13 +124,13 @@ Full dataset: [`data/erp-cost-2026.csv`](data/erp-cost-2026.csv)
 
 [del.ai](https://usedel.ai) migrates mid-market companies ($30M–$300M revenue) from NetSuite to Odoo in 90 days at a fixed price.
 
-- **Fixed price** — no change orders
-- **Parallel run** — NetSuite stays live throughout migration, zero cutover risk
-- **AI agents included** — two production agents deployed at go-live
-- **You own the code** — Odoo is LGPL, your codebase is yours after migration
+- Fixed price — no change orders
+- Parallel run — NetSuite stays live throughout, zero cutover risk
+- AI agents included — two production agents deployed at go-live
+- You own the code — Odoo is LGPL, your codebase is yours after migration
 
-Questions: [usedel.ai](https://usedel.ai) · Built by [Patrick Xie](https://linkedin.com/in/patrickxie), CEO del.ai
+**Built by [Patrick Xie](https://www.linkedin.com/in/patrickxie), CEO del.ai · [usedel.ai](https://usedel.ai)**
 
 ---
 
-*Data current as of June 2026. Sources in [`data/sources.md`](data/sources.md).*
+*Data current as of June 2026. Sources in [`data/sources.md`](data/sources.md). MIT License.*
