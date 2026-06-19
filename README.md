@@ -1,12 +1,20 @@
 <p align="center">
-  <img src="./assets/banner.png" alt="NetSuite Stack Tax by del.ai" width="100%">
+  <img src="./assets/logo.svg" alt="del.ai" width="80">
+</p>
+
+<h2 align="center">NetSuite Stack Tax</h2>
+
+<p align="center">
+  Your NetSuite license is $40k. Your actual bill is $260k–$830k.
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-F97316.svg" alt="License"></a>
   <a href="https://usedel.ai"><img src="https://img.shields.io/badge/website-usedel.ai-F97316" alt="Website"></a>
-  <a href="https://usedel-ai.github.io/netsuite-stack-tax/calculator/"><img src="https://img.shields.io/badge/calculator-live-brightgreen" alt="Calculator"></a>
-  <a href="https://www.linkedin.com/company/del-ai"><img src="https://img.shields.io/badge/LinkedIn-del.ai-0A66C2?logo=linkedin" alt="LinkedIn"></a>
+  <a href="https://usedel-ai.github.io/netsuite-stack-tax/calculator/"><img src="https://img.shields.io/badge/%F0%9F%A7%AE_calculator-live-brightgreen" alt="Calculator"></a>
+  <img src="https://img.shields.io/badge/research-MIT_%C2%B7_NBER_%C2%B7_Panorama-blue" alt="Research">
+  <img src="https://img.shields.io/badge/data-June_2026-lightgrey" alt="Data date">
+  <a href="https://www.linkedin.com/"><img src="https://img.shields.io/badge/LinkedIn-del.ai-0A66C2?logo=linkedin" alt="LinkedIn"></a>
   <a href="https://github.com/usedel-ai/netsuite-stack-tax/discussions"><img src="https://img.shields.io/badge/discussions-open-blue" alt="Discussions"></a>
 </p>
 
@@ -71,11 +79,11 @@ AI agents need five primitives to work in production:
 
 | Primitive | NetSuite | Odoo |
 |-----------|----------|------|
-| Schema access | Partial (API subset only) | Full (PostgreSQL direct) |
-| Write capability | Limited (10 req/s, field restrictions) | Full (ORM + direct write) |
-| Canonical ontology | No (3 naming systems) | Yes (ORM enforces consistency) |
-| Real-time events | No (no native webhooks) | Yes (LISTEN/NOTIFY) |
-| Code extensibility | No (SuiteScript sandbox) | Yes (Python, no gating) |
+| Schema access | ⚠️ Partial (API subset only) | ✅ Full (PostgreSQL direct) |
+| Write capability | ⚠️ Limited (rate-limited, field restrictions) | ✅ Full (ORM + direct write) |
+| Canonical ontology | ❌ 3 naming systems, no consistency | ✅ ORM enforces consistency |
+| Real-time events | ❌ No native webhooks | ✅ PostgreSQL LISTEN/NOTIFY |
+| Code extensibility | ❌ SuiteScript sandbox | ✅ Python, no gating |
 
 Full analysis: [`research/why-ai-fails-on-erp.md`](research/why-ai-fails-on-erp.md)
 Data: [`data/ai-agent-erp-requirements.csv`](data/ai-agent-erp-requirements.csv)
@@ -129,7 +137,7 @@ Full analysis: [`research/alliance-partner-economics.md`](research/alliance-part
 - AI agents included — two production agents deployed at go-live
 - You own the code — Odoo is LGPL, your codebase is yours after migration
 
-**Built by [Patrick Xie](https://www.linkedin.com/in/patrickxie), CEO del.ai · [usedel.ai](https://usedel.ai)**
+Built by Patrick Xie, CEO del.ai · [usedel.ai](https://usedel.ai) · [LinkedIn](https://www.linkedin.com/)
 
 ---
 
