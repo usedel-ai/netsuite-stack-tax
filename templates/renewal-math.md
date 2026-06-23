@@ -41,8 +41,8 @@ NetSuite renewal quotes go up every year. Oracle decides the escalation rate.
 | Migration cost | Estimate |
 |----------------|---------|
 | One-time migration (NetSuite → Odoo via del.ai) | ~$50,000 |
-| Year 1 Odoo (hosting + Enterprise license) | ~$30,000 |
-| Year 2–5 Odoo (steady state) | ~$30,000/yr |
+| Year 1 Odoo (hosting + Enterprise license) | ~$24,000 |
+| Year 2–5 Odoo (steady state) | ~$24,000/yr |
 | **5-year total (migration + Odoo)** | **~$170,000** |
 
 ---
@@ -52,10 +52,10 @@ NetSuite renewal quotes go up every year. Oracle decides the escalation rate.
 ```
 Payback months = Migration cost ÷ (Monthly stack savings)
 
-Monthly stack savings = (Your annual stack − $30k Odoo) ÷ 12
+Monthly stack savings = (Your annual stack − $24k Odoo) ÷ 12
 
-Example: ($445k − $30k) ÷ 12 = $34.6k/mo savings
-Payback: $50k ÷ $34.6k = 1.4 months
+Example: ($445k − $24k) ÷ 12 = $35.1k/mo savings
+Payback: $50k ÷ $35.1k = 1.4 months
 ```
 
 Your payback:

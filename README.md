@@ -5,7 +5,7 @@
 <h2 align="center">NetSuite Stack Tax</h2>
 
 <p align="center">
-  Your NetSuite license is $40k. Your actual bill is $260k–$830k.
+  Your NetSuite license is $45k. Your actual bill is $260k–$830k.
 </p>
 
 <p align="center">
@@ -67,7 +67,7 @@ For a company with a $120k/yr NetSuite stack at 8% annual escalation:
 
 Migration to Odoo via del.ai: starts at $50,000 (one-time) + $24,000–$60,000/yr post-migration.
 
-**5-year savings: $503,000+** on a $120k starting stack.
+**5-year savings: $534,000+** on a $120k starting stack (vs. $24k/yr Odoo post-migration).
 
 ---
 
